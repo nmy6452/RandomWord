@@ -9,3 +9,7 @@ spring:
     driverClassName: org.h2.Driver
     username: nmy
     password: nmy
+
+  jpa:
+    hibernate:
+#      ddl-auto: create   절대 키지말것 키면 DB 다 날라감

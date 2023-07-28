@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class Word {
 
     @Id
-    String id;
+    int id;
     @Column(nullable = false)
     String word = "단어";
     @Column(nullable = false)
@@ -20,7 +20,7 @@ public class Word {
     WordType type = null;
 
 
-    public Word(String id, String word, WordType type) {
+    public Word(int id, String word, WordType type) {
         this.id = id;
         this.word = word;
         this.type = type;
