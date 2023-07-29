@@ -3,6 +3,7 @@ package com.nmy.randomword.Service;
 import com.nmy.randomword.Entity.Word;
 import com.nmy.randomword.Enum.WordType;
 import com.nmy.randomword.Repository.WordRepository;
+import com.nmy.randomword.dto.WordPutDTO;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,6 +24,17 @@ public class WordService {
             return word;
         } else {
             return repository.findwordrand();
+        }
+    }
+
+    public Word WordInser(WordPutDTO wordPutDTO){
+        if (wordPutDTO.getId() == null){
+            Long id = repository.count() + 1;
+            Word word = new Word(id.intValue(), wordPutDTO.getWord(), WordType.valueOf(wordPutDTO.getType()));
+            return repository.save(word);
+        }else {
+            Word word = new Word(wordPutDTO.getId(), wordPutDTO.getWord(), WordType.valueOf(wordPutDTO.getType()));
+            return repository.save(word);
         }
     }
 }

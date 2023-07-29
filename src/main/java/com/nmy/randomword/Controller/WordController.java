@@ -25,7 +25,6 @@ public class WordController {
     final WordService wordService;
 
     public WordController(WordRepository wordRepository, WordService wordService) {
-
         this.wordService = wordService;
         this.wordRepository = wordRepository;
     }
@@ -48,21 +47,18 @@ public class WordController {
     @RequestMapping(value = "/word",
             method = RequestMethod.PUT,
     produces = MediaType.APPLICATION_JSON_VALUE)
-    public boolean InsertWord(@RequestBody @Valid WordPutDTO wordPutDTO){
-        if (wordPutDTO.getId() == null){
-            throw new CustomException(CustomExceptonCode.ID_IS_NULL);
-        }
+    public Word InsertWord(@RequestBody @Valid WordPutDTO wordPutDTO){
+//        if (wordPutDTO.getId() == null){
+//            throw new CustomException(CustomExceptonCode.ID_IS_NULL);
+//        }
         //타입이 틀리면 예외 발생
-        WordType wordType = null;
         try {
-            wordType = WordType.valueOf(wordPutDTO.getType());
+            WordType.valueOf(wordPutDTO.getType());
         }
         catch (IllegalArgumentException e){
             throw new CustomException(CustomExceptonCode.INVALID_WORD_TYPE);
         }
 
-        Word reqword = new Word(wordPutDTO.getId(), wordPutDTO.getWord(), wordType);
-        wordRepository.save(reqword);
-        return true;
+        return wordService.WordInser(wordPutDTO);
     }
 }
