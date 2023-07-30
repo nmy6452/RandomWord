@@ -1,7 +1,9 @@
 package com.nmy.randomword.Service;
 
 import com.nmy.randomword.Entity.Word;
+import com.nmy.randomword.Enum.CustomExceptonCode;
 import com.nmy.randomword.Enum.WordType;
+import com.nmy.randomword.Exception.CustomException;
 import com.nmy.randomword.Repository.WordRepository;
 import com.nmy.randomword.dto.WordPutDTO;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,9 @@ public class WordService {
 
     public Word WordInser(WordPutDTO wordPutDTO){
         if (wordPutDTO.getId() == null){
+            if (repository.findOneByWord(wordPutDTO.getWord()) != null){
+                throw new CustomException(CustomExceptonCode.CONFLICT_WORD);
+            }
             Long id = repository.count() + 1;
             Word word = new Word(id.intValue(), wordPutDTO.getWord(), WordType.valueOf(wordPutDTO.getType()));
             return repository.save(word);

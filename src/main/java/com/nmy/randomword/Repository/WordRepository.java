@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 public interface WordRepository extends JpaRepository<Word, Long> {
 
     public Word findOneById(Integer id);
+    public Word findOneByWord(String word);
 
     @Query(value = "SELECT * FROM word where type = :type order by RAND() limit 1",nativeQuery = true)
     public Word findOneByType(@Param("type") String type);
