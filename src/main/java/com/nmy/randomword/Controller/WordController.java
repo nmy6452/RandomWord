@@ -37,6 +37,16 @@ public class WordController {
         return ResponseEntity.ok(wordService.getword(id,type));
     }
 
+    @RequestMapping(value = "/word/list", method = RequestMethod.GET)
+    public ResponseEntity<Word[]> GetWordList(
+            @RequestParam(value = "page", required = false) int page,
+            @RequestParam(value = "size", required = false) int size,
+            @RequestParam(value = "id", required = false) String word,
+            @RequestParam(value = "type", required = false) WordType type){
+
+        return ResponseEntity.ok(wordService.GetWordList(page, size, word, type));
+    }
+
     @RequestMapping(value = "/word/type", method = RequestMethod.GET)
     public ResponseEntity<WordType[]> AllWordType(){
         WordType[] Type = WordType.values();
