@@ -11,6 +11,7 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.slf4j.MDC;
+import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +39,7 @@ public class WordController {
     }
 
     @RequestMapping(value = "/word/list", method = RequestMethod.GET)
-    public ResponseEntity<Word[]> GetWordList(
+    public ResponseEntity<Page<Word>> GetWordList(
             @RequestParam(value = "page", required = false) int page,
             @RequestParam(value = "size", required = false) int size,
             @RequestParam(value = "id", required = false) String word,

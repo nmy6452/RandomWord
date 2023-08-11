@@ -6,6 +6,7 @@ import com.nmy.randomword.Enum.WordType;
 import com.nmy.randomword.Exception.CustomException;
 import com.nmy.randomword.Repository.WordRepository;
 import com.nmy.randomword.dto.WordPutDTO;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -30,10 +31,11 @@ public class WordService {
         }
     }
 
-    public Word[] GetWordList(int page, int size, String word, WordType wordType){
+    public Page<Word> GetWordList(int page, int size, String word, WordType wordType){
 
         PageRequest pageRequest = PageRequest.of(page,size);
-        return repository.findLikeWordAndType(word, wordType.toString(), pageRequest);
+//        return repository.findLikeWordAndType(word, wordType.toString(), pageRequest);
+        return repository.findAll(pageRequest);
     }
 
     public Word WordInser(WordPutDTO wordPutDTO){
