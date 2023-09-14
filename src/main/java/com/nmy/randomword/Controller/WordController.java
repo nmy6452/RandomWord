@@ -20,6 +20,7 @@ import java.util.Arrays;
 
 @Slf4j
 @RestController
+@RequestMapping("/api")
 public class WordController {
 
     final WordRepository wordRepository;

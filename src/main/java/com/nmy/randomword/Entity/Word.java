@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @NoArgsConstructor
-@Table(name = "WORD")
+@Table(name = "word")
 public class Word {
 
     @Id
