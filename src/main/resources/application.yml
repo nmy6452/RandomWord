@@ -11,5 +11,16 @@ spring:
     password: nmy
 
   jpa:
+    show-sql: true
     hibernate:
 #      ddl-auto: create   절대 키지말것 키면 DB 다 날라감
+      format_sql: true
+      use_sql_comments: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
