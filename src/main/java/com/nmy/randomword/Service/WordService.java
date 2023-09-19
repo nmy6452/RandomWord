@@ -34,8 +34,8 @@ public class WordService {
     public Page<Word> GetWordList(int page, int size, String word, WordType wordType){
 
         PageRequest pageRequest = PageRequest.of(page,size);
-//        return repository.findLikeWordAndType(word, wordType.toString(), pageRequest);
-        return repository.findAll(pageRequest);
+        return repository.findByWordContainingAndType(word, wordType, pageRequest);
+//        return repository.findAll(pageRequest);
     }
 
     public Word WordInser(WordPutDTO wordPutDTO){
