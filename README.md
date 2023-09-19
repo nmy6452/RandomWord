@@ -6,6 +6,7 @@ Spring Boot
 
 ### 기술 스택
 Spring Boot
+Swagger
 Gradle
 h2 database
 JPA
