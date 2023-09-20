@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 @RestController
 public class ViewControlller {
-    @GetMapping("/api/hello")
+    @GetMapping(value = "/api/hello")
     public String test() {
         return "Hello, world!";
     }
