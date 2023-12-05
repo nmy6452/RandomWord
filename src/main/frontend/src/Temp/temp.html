@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<style>
+    label {
+        width: 50px;
+    }
+</style>
+
+<head>
+    <script src="./temp.js"></script>
+</head>
+
+<body>
+    <!-- <form> -->
+    <div>
+        <select>
+            <option value="1">강아지</option>
+            <option value="2">고양이</option>
+        </select>
+    </div>
+    <div>
+        <label for="id1">조단백질</label>
+        <input id="id1" type="number" />
+    </div>
+    <div>
+        <label for="id2">조지방</label>
+        <input id="id2" type="number" />
+    </div>
+    <div>
+        <label for="id3">조섬유</label>
+        <input id="id3" type="number" />
+    </div>
+    <div>
+        <label for="id4">조회분</label>
+        <input id="id4" type="number" />
+    </div>
+    <div>
+        <label for="id5">칼슘</label>
+        <input id="id5" type="number" />
+    </div>
+    <div>
+        <label for="id6">인</label>
+        <input id="id6" type="number" />
+    </div>
+    <div>
+        <label for="id7">수분</label>
+        <input id="id7" type="number" />
+    </div>
+    <button onclick="calorie_count()">calorie_count</button>
+    <!-- <button onclick="alat()">alat</button> -->
+    <!-- </form> -->
+    <div>
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>조단백질</th>
+                        <td id="result_1"></td>
+                    </tr>
+                    <tr>
+                        <th>조지방</th>
+                        <td id="result_2"></td>
+                    </tr>
+                    <tr>
+                        <th>조섬유</th>
+                        <td id="result_3"></td>
+                    </tr>
+                    <tr>
+                        <th>조회분</th>
+                        <td id="result_4"></td>
+                    </tr>
+                    <tr>
+                        <th>칼슘</th>
+                        <td id="result_5"></td>
+                    </tr>
+                    <tr>
+                        <th>인</th>
+                        <td id="result_6"></td>
+                    </tr>
+                    <tr>
+                        <th>수분</th>
+                        <td id="result_7"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="result">
+                <h2>총칼로리: </h2>
+            </div>
+        </div>
+    </div>
+</body>
